@@ -60,42 +60,7 @@ class App extends Component {
             path="/books/:color/"
             render={props => <BookList {...props} books={this.state.books} />}
           />
-          {/* <Route
-            path="/books/yellow/"
-            render={props => (
-              <BookList
-                {...props}
-                books={this.state.books.filter(book => book.color === "yellow")}
-              />
-            )}
-          />
-          <Route
-            path="/books/green/"
-            render={props => (
-              <BookList
-                {...props}
-                books={this.state.books.filter(book => book.color === "green")}
-              />
-            )}
-          />
-          <Route
-            path="/books/blue/"
-            render={props => (
-              <BookList
-                {...props}
-                books={this.state.books.filter(book => book.color === "blue")}
-              />
-            )}
-          />
-          <Route
-            path="/books/white/"
-            render={props => (
-              <BookList
-                {...props}
-                books={this.state.books.filter(book => book.color === "white")}
-              />
-            )}
-          /> */}
+
           <Route
             exact
             path="/books/"

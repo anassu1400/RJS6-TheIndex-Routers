@@ -3,7 +3,8 @@ import BookTable from "./BookTable";
 import SearchBar from "./SearchBar";
 class BookList extends Component {
   state = {
-    filteredBooks: []
+    filteredBooks: [],
+    filteredByColor: []
   };
   componentDidMount = () => {
     let filteredB = this.props.books;
@@ -14,7 +15,8 @@ class BookList extends Component {
       );
     }
     this.setState({
-      filteredBooks: filteredB
+      filteredBooks: filteredB,
+      filteredByColor: filteredB
     });
   };
   componentDidUpdate = prevProps => {
@@ -26,16 +28,18 @@ class BookList extends Component {
         );
       }
       this.setState({
-        filteredBooks: filteredB
+        filteredBooks: filteredB,
+        filteredByColor: filteredB
       });
     }
   };
   filterBooksByName = query => {
     query = query.toLowerCase();
-    let filteredBooks = this.props.books.filter(book =>
+    let filteredBooks = this.props.books;
+    filteredBooks = this.state.filteredByColor.filter(book =>
       `${book.title}`.toLowerCase().includes(query)
     );
-    this.setState({ filteredBooks: filteredBooks });
+    this.setState({ filteredBooks });
   };
 
   render() {
