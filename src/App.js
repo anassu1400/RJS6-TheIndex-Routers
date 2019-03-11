@@ -56,15 +56,11 @@ class App extends Component {
             )}
           />
           <Route
-            path="/books/red/"
-            render={props => (
-              <BookList
-                {...props}
-                books={this.state.books.filter(book => book.color === "red")}
-              />
-            )}
+            exact
+            path="/books/:color/"
+            render={props => <BookList {...props} books={this.state.books} />}
           />
-          <Route
+          {/* <Route
             path="/books/yellow/"
             render={props => (
               <BookList
@@ -99,7 +95,7 @@ class App extends Component {
                 books={this.state.books.filter(book => book.color === "white")}
               />
             )}
-          />
+          /> */}
           <Route
             exact
             path="/books/"

@@ -6,11 +6,28 @@ class BookList extends Component {
     filteredBooks: []
   };
   componentDidMount = () => {
-    this.setState({ filteredBooks: this.props.books });
+    let filteredB = this.props.books;
+
+    if (this.props.match.params.color !== undefined) {
+      filteredB = this.props.books.filter(
+        book => book.color === this.props.match.params.color
+      );
+    }
+    this.setState({
+      filteredBooks: filteredB
+    });
   };
   componentDidUpdate = prevProps => {
-    if (prevProps.books !== this.props.books) {
-      this.setState({ filteredBooks: this.props.books });
+    let filteredB = this.props.books;
+    if (prevProps.match.params.color !== this.props.match.params.color) {
+      if (this.props.match.params.color !== undefined) {
+        filteredB = this.props.books.filter(
+          book => book.color === this.props.match.params.color
+        );
+      }
+      this.setState({
+        filteredBooks: filteredB
+      });
     }
   };
   filterBooksByName = query => {

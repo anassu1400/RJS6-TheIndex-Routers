@@ -15,7 +15,7 @@ class BookRow extends Component {
         </td>
         <td>
           <Link
-            to={`/books/${book.color}/`}
+            to={`/books/${book.color}`}
             className="btn"
             style={{ backgroundColor: book.color }}
           />
